@@ -1,8 +1,9 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import sys
 import argparse
+import sys
 import warnings
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Suppress specific warnings
 warnings.filterwarnings("ignore", message="A NumPy version")
@@ -127,7 +128,7 @@ class WaveformComparator:
                     else:
                         sampling_rate = 1000
                 return waveform, t, sampling_rate
-            except:
+            except Exception:
                 # Try CSV
                 try:
                     data = np.genfromtxt(filepath, delimiter=",", skip_header=1)
@@ -143,7 +144,7 @@ class WaveformComparator:
                         else:
                             sampling_rate = 1000
                     return waveform, t, sampling_rate
-                except:
+                except Exception:
                     # If all fails, create a simple waveform
                     print(
                         f"Warning: Could not load {filepath}, using default sine wave"
@@ -633,16 +634,16 @@ def main():
 Examples:
   # Compare two signal files
   python waveform_diff.py signal1.txt signal2.txt
-  
+
   # Compare synthetic signals
   python waveform_diff.py sine square --synthetic
-  
+
   # Customize comparison parameters
   python waveform_diff.py file1.txt file2.txt --threshold 0.05 --window 100 --no-warping
-  
+
   # Save output to file
   python waveform_diff.py ecg1.txt ecg2.txt --save plot.png
-  
+
   # Generate signal with specific sampling rate
   python waveform_diff.py sine triangle --synthetic --rate 2000
         """,
@@ -718,9 +719,12 @@ Examples:
 
         # Perform comparison
         print("\nPerforming waveform comparison...")
-        operations, aligned_w1, aligned_w2, edit_distance = (
-            comparator.sliding_window_distance(w1_norm, w2_norm)
-        )
+        (
+            operations,
+            aligned_w1,
+            aligned_w2,
+            edit_distance,
+        ) = comparator.sliding_window_distance(w1_norm, w2_norm)
 
         print("Comparison complete.")
         print(f"  Total operations: {len(operations)}")
@@ -796,9 +800,12 @@ def simple_example():
     w2_norm = comparator.normalize_waveform(w2)
 
     # Compare
-    operations, aligned_w1, aligned_w2, edit_distance = (
-        comparator.sliding_window_distance(w1_norm, w2_norm)
-    )
+    (
+        operations,
+        aligned_w1,
+        aligned_w2,
+        edit_distance,
+    ) = comparator.sliding_window_distance(w1_norm, w2_norm)
 
     # Visualize
     comparator.visualize_comparison(

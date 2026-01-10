@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def verify_audio_signals(s1, s2, threshold=0.15):

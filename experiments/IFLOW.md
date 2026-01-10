@@ -10,7 +10,7 @@
 
 1. **waveform_diff.py** - 主要的波形比较工具
    - **功能**: 使用编辑距离技术和动态时间规整比较两个波形
-   - **特性**: 
+   - **特性**:
      - 支持从文件加载波形或生成合成信号（正弦波、方波、三角波、啁啾信号、ECG模拟信号）
      - 实现动态时间规整（DTW）算法用于波形对齐
      - 提供可视化比较结果，包括原始波形、对齐后波形和操作统计
@@ -20,10 +20,10 @@
      ```bash
      # 比较两个信号文件
      python waveform_diff.py signal1.txt signal2.txt
-     
+
      # 比较合成信号
      python waveform_diff.py sine square --synthetic
-     
+
      # 自定义比较参数
      python waveform_diff.py file1.txt file2.txt --threshold 0.05 --window 100 --no-warping
      ```
@@ -39,10 +39,10 @@
      ```bash
      # 基本比较
      python diff_distance.py file1.txt file2.txt
-     
+
      # 显示详细编辑操作
      python diff_distance.py file1.txt file2.txt --detailed
-     
+
      # 显示DP矩阵
      python diff_distance.py file1.txt file2.txt --matrix
      ```
@@ -57,7 +57,7 @@
      ```bash
      # 统一格式差异（类似git diff）
      python diff_tool.py file1.txt file2.txt --format unified
-     
+
      # HTML格式差异
      python diff_tool.py file1.txt file2.txt --format html -o diff.html
      ```

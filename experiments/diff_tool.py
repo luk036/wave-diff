@@ -1,6 +1,6 @@
+import argparse
 import difflib
 import sys
-import argparse
 
 
 def simple_diff(file1_content, file2_content, file1_name="file1", file2_name="file2"):

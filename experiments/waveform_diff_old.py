@@ -1,13 +1,14 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+import argparse
 
 # import matplotlib.patches as mpatches
 import sys
-import argparse
-from scipy import signal
-from enum import Enum
 import warnings
+from enum import Enum
+
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Rectangle
+from scipy import signal
 
 warnings.filterwarnings("ignore")
 
@@ -92,7 +93,7 @@ class WaveformComparator:
                     else:
                         sampling_rate = 1000
                 return waveform, t, sampling_rate
-            except:
+            except Exception:
                 # Try CSV
                 data = np.genfromtxt(filepath, delimiter=",", skip_header=1)
                 if data.ndim == 1:
@@ -455,31 +456,31 @@ class WaveformComparator:
         report = f"""
         WAVEFORM COMPARISON REPORT
         ===========================
-        
+
         Files Compared:
         - {filename1}: {len(w1)} samples
         - {filename2}: {len(w2)} samples
-        
+
         Comparison Parameters:
         - Window Size: {self.window_size}
         - Threshold: {self.threshold}
         - Time Warping: {"Enabled" if self.time_warping else "Disabled"}
-        
+
         RESULTS:
         ========
-        
+
         Edit Distance Metrics:
         - Total Operations: {total_ops}
         - Matches: {matches} ({similarity:.2f}%)
         - Edit Distance: {edit_distance}
-        
+
         Operation Breakdown:
         - Matches: {op_counts[EditOperation.MATCH]}
         - Insertions: {op_counts[EditOperation.INSERT]}
         - Deletions: {op_counts[EditOperation.DELETE]}
         - Substitutions: {op_counts[EditOperation.SUBSTITUTE]}
         - Time Shifts: {op_counts.get(EditOperation.TIME_SHIFT, 0)}
-        
+
         Similarity Assessment:
         """
 
@@ -518,16 +519,16 @@ def main():
 Examples:
   # Compare two signal files
   python waveform_diff.py signal1.txt signal2.txt
-  
+
   # Compare synthetic signals
   python waveform_diff.py sine square --synthetic
-  
+
   # Customize comparison parameters
   python waveform_diff.py file1.txt file2.txt --threshold 0.05 --window 100 --no-warping
-  
+
   # Save output to file
   python waveform_diff.py ecg1.txt ecg2.txt --save plot.png
-  
+
   # Generate signal with specific sampling rate
   python waveform_diff.py sine triangle --synthetic --rate 2000
         """,
@@ -600,9 +601,12 @@ Examples:
 
         # Perform comparison
         print("\nPerforming waveform comparison...")
-        operations, aligned_w1, aligned_w2, distance = (
-            comparator.sliding_window_distance(w1_norm, w2_norm)
-        )
+        (
+            operations,
+            aligned_w1,
+            aligned_w2,
+            distance,
+        ) = comparator.sliding_window_distance(w1_norm, w2_norm)
 
         print(f"Comparison complete. Edit distance: {distance}")
 

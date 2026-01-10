@@ -1,0 +1,36 @@
+
+WAVEFORM COMPARISON REPORT
+===========================
+
+Files Compared:
+- sine: 2000 samples
+- triangle: 2000 samples
+
+Comparison Parameters:
+- Window Size: 50
+- Threshold: 0.1
+- Time Warping: Enabled
+
+RESULTS:
+========
+
+Edit Distance Metrics:
+- Total Operations: 1000
+- Matches: 93 (9.30%)
+- Edit Distance: 907
+
+Operation Breakdown:
+- Matches: 93
+- Insertions: 0
+- Deletions: 0
+- Substitutions: 907
+
+Similarity Assessment:
+- Waveforms are VERY DIFFERENT (unrelated)
+
+
+Statistical Comparison:
+- Mean Amplitude: sine=-0.0000, triangle=-0.0000
+- Standard Deviation: sine=0.7069, triangle=0.5779
+- Mean Difference: 0.0000
+- Standard Deviation Difference: 0.1290

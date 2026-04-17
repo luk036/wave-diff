@@ -1,6 +1,7 @@
+from enum import Enum
 import argparse
 import sys
-from enum import Enum
+from typing import Any, Dict, List, Tuple
 
 
 class EditOperation(Enum):
@@ -12,7 +13,7 @@ class EditOperation(Enum):
     REPLACE = 3
 
 
-def levenshtein_distance(str1, str2):
+def levenshtein_distance(str1: str, str2: str) -> Tuple[int, List[List[int]]]:
     """
     Calculate Levenshtein distance between two strings.
     Returns the distance and the edit operations matrix.
@@ -43,7 +44,14 @@ def levenshtein_distance(str1, str2):
     return dp[m][n], dp
 
 
-def levenshtein_distance_with_path(str1, str2):
+def levenshtein_distance_with_path(
+    str1: str, str2: str
+) -> Tuple[
+    int,
+    List[List[int]],
+    List[List[EditOperation]],
+    List[Tuple[EditOperation, int, int]],
+]:
     """
     Calculate Levenshtein distance and return the edit path.
     """
@@ -105,7 +113,7 @@ def levenshtein_distance_with_path(str1, str2):
     return dp[m][n], dp, ops, path
 
 
-def diff_lines(lines1, lines2):
+def diff_lines(lines1: List[str], lines2: List[str]) -> Tuple[int, str]:
     """
     Perform diff between two lists of lines.
     Returns edit distance and diff output.
@@ -154,7 +162,7 @@ def diff_lines(lines1, lines2):
     return dp[m][n], "\n".join(diff_output)
 
 
-def compute_file_similarity(file1_content, file2_content):
+def compute_file_similarity(file1_content: str, file2_content: str) -> Dict[str, Any]:
     """Compute similarity metrics between two files"""
     # Character-level Levenshtein distance
     char_distance, char_dp = levenshtein_distance(file1_content, file2_content)
@@ -195,7 +203,14 @@ def compute_file_similarity(file1_content, file2_content):
     }
 
 
-def show_edit_operations(str1, str2):
+def show_edit_operations(
+    str1: str, str2: str
+) -> Tuple[
+    int,
+    List[List[int]],
+    List[List[EditOperation]],
+    List[Tuple[EditOperation, int, int]],
+]:
     """Show detailed edit operations between two strings"""
     distance, dp, ops, path = levenshtein_distance_with_path(str1, str2)
 

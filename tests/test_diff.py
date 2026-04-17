@@ -1,15 +1,10 @@
 """Tests for diff_distance module."""
 
-import sys
-import os
-
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "experiments"))
-
 from diff_distance import (
+    compute_file_similarity,
+    diff_lines,
     levenshtein_distance,
     levenshtein_distance_with_path,
-    diff_lines,
-    compute_file_similarity,
 )
 
 
@@ -77,9 +72,3 @@ def test_compute_file_similarity_different():
     assert result["char_distance"] > 0
     assert result["char_similarity"] < 100.0
     assert result["char_similarity"] > 0
-
-
-if __name__ == "__main__":
-    import pytest
-
-    pytest.main([__file__, "-v"])

@@ -1,6 +1,6 @@
-from enum import Enum
 import argparse
 import sys
+from enum import Enum
 from typing import Any, Dict, List, Tuple
 
 
@@ -44,9 +44,7 @@ def levenshtein_distance(str1: str, str2: str) -> Tuple[int, List[List[int]]]:
     return dp[m][n], dp
 
 
-def levenshtein_distance_with_path(
-    str1: str, str2: str
-) -> Tuple[
+def levenshtein_distance_with_path(str1: str, str2: str) -> Tuple[
     int,
     List[List[int]],
     List[List[EditOperation]],
@@ -203,9 +201,7 @@ def compute_file_similarity(file1_content: str, file2_content: str) -> Dict[str,
     }
 
 
-def show_edit_operations(
-    str1: str, str2: str
-) -> Tuple[
+def show_edit_operations(str1: str, str2: str) -> Tuple[
     int,
     List[List[int]],
     List[List[EditOperation]],

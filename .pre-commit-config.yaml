@@ -14,8 +14,10 @@ repos:
       - id: debug-statements
       - id: end-of-file-fixer
       - id: requirements-txt-fixer
+        exclude: "requirements[.]txt$"
       - id: mixed-line-ending
-        args: ["--fix=auto"]
+        args: ["--fix=auto"] # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
+        exclude: "requirements[.]txt$"
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.4

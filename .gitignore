@@ -163,3 +163,7 @@ figures/
 temp/
 tmp/
 *.tmp
+
+# Cache dirs
+.ruff_cache/
+.benchmarks/

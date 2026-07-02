@@ -14,9 +14,21 @@ class EditOperation(Enum):
 
 
 def levenshtein_distance(str1: str, str2: str) -> Tuple[int, List[List[int]]]:
-    """
+    r"""
     Calculate Levenshtein distance between two strings.
     Returns the distance and the edit operations matrix.
+
+    .. svgbob::
+       :align: center
+
+           S T R I N G
+           │↘↘↘↘↘↘
+           │ ↘↘↘↘↘
+           │  ↘↘↘↘
+           │   ↘↘↘
+           │    ↘↘
+           │     ↘
+           S U B S T R
     """
     m, n = len(str1), len(str2)
 

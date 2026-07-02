@@ -1,11 +1,6 @@
 """Tests for diff_tool module."""
 
-from experiments.diff_tool import (
-    context_diff,
-    html_diff,
-    simple_diff,
-    unified_diff,
-)
+from experiments.diff_tool import context_diff, html_diff, simple_diff, unified_diff
 
 
 def test_simple_diff_identical() -> None:

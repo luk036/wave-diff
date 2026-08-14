@@ -1,6 +1,6 @@
 """Tests for diff_distance module."""
 
-from diff_distance import (
+from wave_diff.diff_distance import (
     compute_file_similarity,
     diff_lines,
     levenshtein_distance,

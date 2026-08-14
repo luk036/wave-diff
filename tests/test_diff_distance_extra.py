@@ -1,6 +1,6 @@
 """Additional tests for the diff_distance module covering edge cases."""
 
-from experiments.diff_distance import (
+from wave_diff.diff_distance import (
     EditOperation,
     compute_file_similarity,
     diff_lines,

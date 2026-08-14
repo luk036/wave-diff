@@ -47,7 +47,7 @@ wave-diff -s file1.txt file2.txt
 ## Python API
 
 ```python
-from experiments.diff_distance import (
+from wave_diff.diff_distance import (
     levenshtein_distance,
     compute_file_similarity,
     diff_lines,
@@ -73,23 +73,25 @@ pytest
 
 With coverage report:
 ```bash
-pytest --cov=experiments --cov-report=term-missing
+pytest --cov=wave_diff --cov-report=term-missing
 ```
 
 ## Project Structure
 
 ```
 wave-diff/
-├── experiments/
-│   ├── __init__.py          # Package init
-│   ├── diff_distance.py     # Levenshtein distance implementation
-│   ├── diff_tool.py         # Standard library diff wrappers
-│   └── waveform_diff.py     # Waveform comparison using DTW
+├── src/
+│   └── wave_diff/
+│       ├── __init__.py          # Package init
+│       ├── diff_distance.py     # Levenshtein distance implementation
+│       ├── diff_tool.py         # Standard library diff wrappers
+│       └── waveform_diff.py     # Waveform comparison using DTW
+├── experiments/                 # Demo scripts and experiments
 ├── tests/
 │   ├── conftest.py
 │   └── test_diff.py
-├── setup.cfg                # Project configuration
-├── setup.py                 # Setup script
+├── setup.cfg                    # Project configuration
+├── setup.py                     # Setup script
 └── README.md
 ```
 

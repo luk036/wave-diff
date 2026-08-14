@@ -1,61 +1,29 @@
-experiments package
-===================
+wave_diff package
+=================
 
 Submodules
 ----------
 
-experiments.diff\_distance module
----------------------------------
-
-.. automodule:: experiments.diff_distance
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-experiments.diff\_tool module
------------------------------
-
-.. automodule:: experiments.diff_tool
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-experiments.gemini\_diff module
+wave_diff.diff\_distance module
 -------------------------------
 
-.. automodule:: experiments.gemini_diff
+.. automodule:: wave_diff.diff_distance
    :members:
    :show-inheritance:
    :undoc-members:
 
-experiments.glitch2\_demo module
---------------------------------
+wave_diff.diff\_tool module
+---------------------------
 
-.. automodule:: experiments.glitch2_demo
+.. automodule:: wave_diff.diff_tool
    :members:
    :show-inheritance:
    :undoc-members:
 
-experiments.glitch\_demo module
+wave_diff.waveform\_diff module
 -------------------------------
 
-.. automodule:: experiments.glitch_demo
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-experiments.waveform\_diff module
----------------------------------
-
-.. automodule:: experiments.waveform_diff
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-experiments.waveform\_diff\_old module
---------------------------------------
-
-.. automodule:: experiments.waveform_diff_old
+.. automodule:: wave_diff.waveform_diff
    :members:
    :show-inheritance:
    :undoc-members:
@@ -63,7 +31,7 @@ experiments.waveform\_diff\_old module
 Module contents
 ---------------
 
-.. automodule:: experiments
+.. automodule:: wave_diff
    :members:
    :show-inheritance:
    :undoc-members:

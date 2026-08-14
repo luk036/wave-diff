@@ -54,7 +54,7 @@ pip install -e .[testing]     # With test dependencies
 - Target: Python 3.12 (for CI)
 
 ### Type Hints
-- **Required** for all new code in `experiments/` module
+- **Required** for all new code in `src/wave_diff/` module
 - Use `typing` module for complex types (List, Dict, Tuple, Optional, Union)
 - Example:
   ```python
@@ -71,7 +71,7 @@ pip install -e .[testing]     # With test dependencies
 - Separate with blank lines
 - Use absolute imports:
   ```python
-  from experiments.diff_distance import levenshtein_distance
+  from wave_diff.diff_distance import levenshtein_distance
   # NOT: from .diff_distance import ...
   ```
 
@@ -107,7 +107,7 @@ pip install -e .[testing]     # With test dependencies
 - Keep functions small and focused (single responsibility)
 - Group related functions into modules
 - Put CLI entry points in `if __name__ == "__main__":` blocks
-- Keep `experiments/` for library code, `tests/` for tests
+- Keep `src/wave_diff/` for library code, `tests/` for tests
 
 ### Documentation
 - Use docstrings for public APIs
@@ -134,18 +134,19 @@ pip install -e .[testing]     # With test dependencies
 
 ```
 wave-diff/
-├── experiments/          # Main package code
-│   ├── __init__.py      # Package init
-│   ├── diff_distance.py # Levenshtein distance (main module)
-│   ├── diff_tool.py     # Standard library diff wrappers
-│   └── waveform_diff.py # Waveform comparison (DTW)
-├── tests/               # Test files
-│   ├── conftest.py      # Pytest fixtures
-│   └── test_diff.py     # Test cases
-├── setup.cfg            # Project configuration
-├── setup.py             # Setup script
-├── pyproject.toml       # Build configuration
-├── README.md            # Documentation
+├── src/
+│   └── wave_diff/         # Main package code
+│       ├── __init__.py    # Package init
+│       ├── diff_distance.py # Levenshtein distance (main module)
+│       ├── diff_tool.py   # Standard library diff wrappers
+│       └── waveform_diff.py # Waveform comparison (DTW)
+├── experiments/           # Demo scripts and experiments
+├── tests/                 # Test files
+│   ├── conftest.py        # Pytest fixtures
+│   └── test_diff.py       # Test cases
+├── setup.cfg              # Project configuration
+├── setup.py               # Setup script
+├── README.md              # Documentation
 └── .pre-commit-config.yaml  # Pre-commit hooks
 ```
 
@@ -155,7 +156,7 @@ wave-diff/
 
 - **Test Matrix**: Python 3.9, 3.10, 3.11, 3.12, 3.13
 - **Lint Matrix**: Python 3.9, 3.12
-- **Coverage Threshold**: 10% (minimum for experiments module)
+- **Coverage Threshold**: 10% (minimum for wave_diff module)
 - **Linters**: ruff, flake8, black, isort
 
 ---
@@ -168,7 +169,7 @@ pytest tests/test_diff.py::test_levenshtein_identical
 ```
 
 ### Adding a New Experiment
-1. Create file in `experiments/`
+1. Create file in `src/wave_diff/`
 2. Add type hints
 3. Add tests in `tests/`
 4. Run `pytest` to verify

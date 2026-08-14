@@ -36,7 +36,7 @@ except ImportError:
     from sphinx import apidoc  # type: ignore[attr-defined, no-redef]
 
 output_dir = os.path.join(__location__, "api")
-module_dir = os.path.join(__location__, "../experiments")
+module_dir = os.path.join(__location__, "../src/wave_diff")
 try:
     shutil.rmtree(output_dir)
 except FileNotFoundError:
@@ -118,7 +118,7 @@ copyright = "2024, Wai-Shing Luk"
 # If you don't need the separation provided between version and release,
 # just set them both to the same value.
 try:
-    from experiments import __version__ as version
+    from wave_diff import __version__ as version
 except ImportError:
     version = ""
 

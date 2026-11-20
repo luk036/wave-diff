@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 0.3 (2026-11-20)
+
+### Build & CI
+- **PyPI publish workflow**: Added the release-triggered publish workflow. (#f81d80e)
+
+### Maintenance
+- **Package metadata**: Replaced the placeholder description and URLs in `setup.cfg`. (#f81d80e)
+
 ## Version 0.2 (2026-10-09)
 
 ### Features
